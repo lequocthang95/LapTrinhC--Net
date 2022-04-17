@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <h1>ASP.NET</h1>
+    <p class="lead">Chào các bạn bây giờ là: @DateTime.Now.ToString()</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        @{
+            int kq;
+            string ketqua;
+            if (IsPost)
+            {
+                var num1 = Request["so1"];
+                var num2 = Request["so2"];
+                kq = num1.AsInt() + num2.AsInt();
+                ketqua = kq.ToString();
+            }
+            else { ketqua = ""; }
+        }
+        <h2>Bảng tính cộng</h2>
+        <form role="form" action="" method="post">
+            <div class="form-group">
+                <label>Nhập số nguyên thứ nhất</label>
+                <input type="text" class="form-control" id="so1" name="so1">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Số nguyên thứ hai</label>
+                <input type="text" class="form-control" id="so2" name="so2">
+            </div>
+            <button type="submit" class="btn btn-default">Cộng</button>
+            <p>Kết quả: @ketqua</p>
+        </form>
+    </div>
+    <div class="col-md-4">
+
+        <h2>Đăng ký thành viên</h2>
+        @model WebDemo2.Models.Student
+        @using (Html.BeginForm())
+        {
+           <table>
+               <tr>
+                   
+                   <td>@Html.TextBoxFor(m=>m.Id)</td>
+               </tr>
+           </table>
+            
+                <label>Nhập số nguyên thứ nhất</label>
+                <input type="text" class="form-control" id="so1" name="so1">
+            
+            <button type="submit" class="btn btn-default">Cộng</button>
+        }
+
+    </div>
+    <div class="col-md-4">
+        <div class="alert alert-primary" role="alert">
+            A simple primary alert—check it out!
+        </div>
+    </div>
+</div>
