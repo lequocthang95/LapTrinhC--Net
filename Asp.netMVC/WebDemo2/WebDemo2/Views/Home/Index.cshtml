@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+   
 }
 
 <div>
@@ -32,29 +33,47 @@
                 <label for="exampleInputPassword1">Số nguyên thứ hai</label>
                 <input type="text" class="form-control" id="so2" name="so2">
             </div>
-            <button type="submit" class="btn btn-default">Cộng</button>
+            <button type="submit" class="btn btn-primary mt-2">Cộng</button>
             <p>Kết quả: @ketqua</p>
         </form>
     </div>
     <div class="col-md-4">
-
-        <h2>Đăng ký thành viên</h2>
+        <h2>Đăng ký sinh viên</h2>
         @model WebDemo2.Models.Student
         @using (Html.BeginForm())
         {
-           <table>
-               <tr>
-                   
-                   <td>@Html.TextBoxFor(m=>m.Id)</td>
-               </tr>
-           </table>
-            
-                <label>Nhập số nguyên thứ nhất</label>
-                <input type="text" class="form-control" id="so1" name="so1">
-            
-            <button type="submit" class="btn btn-default">Cộng</button>
+            <table class="customers">
+                <tr>
+                    <td>@Html.LabelFor(m => m.Id)</td>
+                    <td>@Html.TextBoxFor(m => m.Id)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Password)</td>
+                    <td>@Html.PasswordFor(m => m.Password)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.FullName)</td>
+                    <td>@Html.TextBoxFor(m => m.FullName)</td>
+                </tr>
+                <tr>
+                    <td>Giới tính</td>
+                    <td>@Html.RadioButtonFor(m => m.Gender, true) Nam @Html.RadioButtonFor(m => m.Gender, false) Nữ</td>
+                    
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Birthday)</td>
+                    <td>@Html.TextBoxFor(m => m.Birthday)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Notes)</td>
+                    <td>@Html.TextAreaFor(m => m.Notes)</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><button type="submit" class="btn btn-primary">Đăng ký</button></td>
+                </tr>
+            </table> 
         }
-
     </div>
     <div class="col-md-4">
         <div class="alert alert-primary" role="alert">
