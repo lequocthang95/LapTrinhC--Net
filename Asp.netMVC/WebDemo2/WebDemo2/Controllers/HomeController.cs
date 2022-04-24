@@ -26,5 +26,9 @@ namespace WebDemo2.Controllers
 
             return View();
         }
+        public ActionResult getIndex()
+        {
+            return PartialView();
+        }
     }
 }
