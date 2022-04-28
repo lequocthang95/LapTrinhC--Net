@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace WebDemo2.Models
 {
-    public class Student
+    public class Students
     {
         [DisplayName("Mã sinh viên")]
         public String Id { get; set; }

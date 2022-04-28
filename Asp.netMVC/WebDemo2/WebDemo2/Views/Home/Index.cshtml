@@ -39,7 +39,7 @@
     </div>
     <div class="col-md-8">
         <h2>Đăng ký sinh viên</h2>
-        @model WebDemo2.Models.Student
+        @model WebDemo2.Models.Students
         @using (Html.BeginForm())
         {
             <table class="customers">
@@ -65,8 +65,8 @@
                     <td>@Html.TextBoxFor(m => m.Birthday)</td>
                 </tr>
                 <tr>
-                    <td>@Html.LabelFor(m => m.Notes)</td>
-                    <td>@Html.TextAreaFor(m => m.Notes, new { @style = "width: 400px;" })</td>
+                    <td class="test">@Html.LabelFor(m => m.Notes)</td>
+                    <td>@Html.TextAreaFor(m => m.Notes, new { @style = "width: 187.8px;", @cols = "23" })</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
@@ -76,8 +76,51 @@
         }
     </div>
     <div class="col-md-4">
-        <div class="alert alert-primary" role="alert">
-            A simple primary alert—check it out!
-        </div>
+        <h2>Đăng nhập</h2>
+
+        
+    </div>
+    <div class="col-md-10">
+        <h2>Bảng so sánh</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="2" >Nội dung </th>                  
+                    <th scope="col">Giống nhau</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Stack</td>
+                    <td>Heap nằm giữa stack và Permanent Storage area, và độ lớn có thể thay đổi khi thực thi chương trình.</td>
+                    <td>Stack và heap là các vùng bộ nhớ</td>
+                </tr>
+                <tr>
+                    <td>Boxing là chuyển đổi kiểu giá trị thành kiểu tham chiếu</td>
+                    <td>Un-Boxing ngược lại.</td>
+                    <td>dùng để chuyển đổi giá trị và tham chiếu</td>
+                </tr>
+                <tr>
+                    <td>Error là lỗi của chương trình</td>
+                    <td>Exception là lỗi chương trình được phát hiện và có thể xử lý.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>ActionResult thường được sử dụng khi bạn muốn trả về 1 view hoặc file hoặc jsondata hoặc điều hướng tới 1 url khác.</td>
+                    <td>JsonResult thường được sử dụng khi bạn muốn trả về jsondata tới 1 client.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Sử dụng câu lệnh break, bạn có thể nhảy ra khỏi vòng lặp.</td>
+                    <td>Sử dụng câu lệnh continue, bạn có thể nhảy qua một lần lặp và sau đó tiếp tục thực hiện vòng lặp của mình.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
