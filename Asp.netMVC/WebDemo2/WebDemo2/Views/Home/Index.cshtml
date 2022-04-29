@@ -1,8 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-   
-}
 
+}
 <div>
     <h1 class="test">ASP.NET</h1>
     <p class="lead">Chào các bạn bây giờ là: @DateTime.Now.ToString()</p>
@@ -37,55 +36,21 @@
             <p>Kết quả: @ketqua</p>
         </form>
     </div>
-    <div class="col-md-8">
-        <h2>Đăng ký sinh viên</h2>
-        @model WebDemo2.Models.Students
-        @using (Html.BeginForm())
-        {
-            <table class="customers">
-                <tr>
-                    <td>@Html.LabelFor(m => m.Id)</td>
-                    <td>@Html.TextBoxFor(m => m.Id)</td>
-                </tr>
-                <tr>
-                    <td>@Html.LabelFor(m => m.Password)</td>
-                    <td>@Html.PasswordFor(m => m.Password)</td>
-                </tr>
-                <tr>
-                    <td>@Html.LabelFor(m => m.FullName)</td>
-                    <td>@Html.TextBoxFor(m => m.FullName)</td>
-                </tr>
-                <tr>
-                    <td>Giới tính</td>
-                    <td>@Html.RadioButtonFor(m => m.Gender, true) Nam @Html.RadioButtonFor(m => m.Gender, false) Nữ</td>
-                    
-                </tr>
-                <tr>
-                    <td>@Html.LabelFor(m => m.Birthday)</td>
-                    <td>@Html.TextBoxFor(m => m.Birthday)</td>
-                </tr>
-                <tr>
-                    <td class="test">@Html.LabelFor(m => m.Notes)</td>
-                    <td>@Html.TextAreaFor(m => m.Notes, new { @style = "width: 187.8px;", @cols = "23" })</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td><button type="submit" class="btn btn-primary">Đăng ký</button></td>
-                </tr>
-            </table> 
-        }
-    </div>
+
     <div class="col-md-4">
         <h2>Đăng nhập</h2>
-
-        
+        @{Html.RenderPartial("Login");}
+    </div>
+    <div class="col-md-4">
+        <h2>Đăng ký</h2>
+        @{Html.RenderPartial("Register");}
     </div>
     <div class="col-md-10">
         <h2>Bảng so sánh</h2>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col" colspan="2" >Nội dung </th>                  
+                    <th scope="col" colspan="2">Nội dung </th>
                     <th scope="col">Giống nhau</th>
                 </tr>
             </thead>

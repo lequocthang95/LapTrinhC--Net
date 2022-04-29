@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebDemo2.Models;
 
 namespace WebDemo2.Controllers
 {
@@ -10,6 +12,7 @@ namespace WebDemo2.Controllers
     {
         public ActionResult Index()
         {
+            
             return View();
         }
 
@@ -26,9 +29,14 @@ namespace WebDemo2.Controllers
 
             return View();
         }
-        public ActionResult getIndex()
+        public PartialViewResult Login()
         {
-            return PartialView();
+            return PartialView("Login", new LoginModel());
         }
+        public PartialViewResult Register()
+        {
+            return PartialView("Register", new Register());
+        }
+
     }
 }

@@ -41,7 +41,7 @@
                 @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
             </td>
             <td>
-                @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label " })
+                @Html.RadioButtonFor(m => m.Gender, true) Nam @Html.RadioButtonFor(m => m.Gender, false) Nữ
             </td>
             <td>
                Nam @Html.RadioButtonFor(m => m.Gender, false) Nữ
