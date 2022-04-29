@@ -10,6 +10,7 @@ namespace WebDemo2.Controllers
     {
         public ActionResult Index()
         {
+          
             return View();
         }
 
