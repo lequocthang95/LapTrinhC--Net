@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-
+    var user = Session["user"] as WebDemo2.Models.LoginModel;
 }
 <div>
     <h1 class="test">ASP.NET</h1>
@@ -38,11 +38,25 @@
     </div>
 
     <div class="col-md-4">
-        <h2>Đăng nhập</h2>
-        @{Html.RenderPartial("Login");}
+        @{
+            if (user != null)
+            {
+                <h2>Xin chao @user.username</h2>
+                <h4>Bạn đã đăng nhập thành công bằng cách dùng Session</h4>
+                <button class="btn btn-outline-warning">
+                   <a class="nav-link active" href="/Home/LogOut">Đăng Xuất</a>
+                </button>
+            }
+            else
+            {
+                <h2>Đăng nhập</h2>
+                Html.RenderPartial("Login");
+            }
+        }
+
     </div>
     <div class="col-md-4">
-        <h2>Đăng ký</h2>
+        <h2>Đăng ký </h2>
         @{Html.RenderPartial("Register");}
     </div>
     <div class="col-md-10">

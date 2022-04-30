@@ -1,7 +1,17 @@
 ﻿@{
     ViewBag.Title = "About";
+    var user = Session["user"] as WebDemo2.Models.LoginModel;
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+    @{
+        if (user.username != null)
+        {
+            <h2>Xin chao @user.username</h2>
+        }
+            else
+            {
+                <h2>Xin chao</h2>
+            }
+    }
+    <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+    <p>Use this area to provide additional information.</p>

@@ -1,7 +1,7 @@
 ﻿@model WebDemo2.Models.LoginModel
 
 
-@using (Html.BeginForm("Index", "LoginModel", FormMethod.Post))
+@using (Html.BeginForm("Login","Home",FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     

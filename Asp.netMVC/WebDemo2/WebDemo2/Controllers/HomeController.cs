@@ -29,14 +29,26 @@ namespace WebDemo2.Controllers
 
             return View();
         }
-        public PartialViewResult Login()
+        
+        [HttpPost]
+        public ActionResult Login(LoginModel login)
         {
-            return PartialView("Login", new LoginModel());
+            if (login != null)
+            {
+                if ((login.username == "QuocThang")&&(login.password =="deptrai"))
+                {
+                    Session["user"] = login;
+                }
+            }
+            return View("Index");
         }
-        public PartialViewResult Register()
+        public ActionResult LogOut()
         {
-            return PartialView("Register", new Register());
+              if (Session["user"] != null)
+                {
+                    Session.Remove("user");
+                }                
+            return View("Index");
         }
-
     }
 }
