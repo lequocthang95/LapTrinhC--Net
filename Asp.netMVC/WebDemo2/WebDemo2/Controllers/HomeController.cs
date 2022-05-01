@@ -38,6 +38,11 @@ namespace WebDemo2.Controllers
                 if ((login.username == "QuocThang")&&(login.password =="deptrai"))
                 {
                     Session["user"] = login;
+                    ViewBag.Message = "";
+                }
+                else
+                {
+                    ViewBag.Message = "Tài khoản đăng nhập sai! Vui lòng nhập lại.";
                 }
             }
             return View("Index");
@@ -48,6 +53,27 @@ namespace WebDemo2.Controllers
                 {
                     Session.Remove("user");
                 }                
+            return View("Index");
+        }
+        [HttpPost]
+        public ActionResult Register(Register register)
+        {
+            if (register.email!=null&&register.username2!=null&&register.password!=null)
+            {
+                HttpContext.Application["register"]=register;
+            }
+            else
+            {
+                ViewBag.MesRegister = "Đăng ký thất bại. Vui lòng nhập lại đúng và đầy đủ.";
+            }
+            return View("Index");
+        }
+        public ActionResult RegisterMore()
+        {
+            if (HttpContext.Application["register"] != null)
+            {
+                HttpContext.Application.Remove("register");
+            }
             return View("Index");
         }
     }

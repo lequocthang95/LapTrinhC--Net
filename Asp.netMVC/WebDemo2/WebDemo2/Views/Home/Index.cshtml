@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
     var user = Session["user"] as WebDemo2.Models.LoginModel;
+    var register = HttpContext.Current.Application["register"] as WebDemo2.Models.Register;
 }
 <div>
     <h1 class="test">ASP.NET</h1>
@@ -44,11 +45,14 @@
                 <h2>Xin chao @user.username</h2>
                 <h4>Bạn đã đăng nhập thành công bằng cách dùng Session</h4>
                 <button class="btn btn-outline-warning">
-                   <a class="nav-link active" href="/Home/LogOut">Đăng Xuất</a>
+                    <a class="nav-link active" href="/Home/LogOut">Đăng Xuất</a>
                 </button>
             }
             else
             {
+                <div style="color:orangered">
+                    @ViewBag.Message
+                </div>
                 <h2>Đăng nhập</h2>
                 Html.RenderPartial("Login");
             }
@@ -56,8 +60,24 @@
 
     </div>
     <div class="col-md-4">
-        <h2>Đăng ký </h2>
-        @{Html.RenderPartial("Register");}
+        @{ if (register != null)
+            {
+                <h2>Bạn đã đăng ký thành công tài khoản:</h2>
+                <h3>Tên đăng nhập: @register.username2 </h3>
+                <h3>Email: @register.email</h3>
+                <button class="btn btn-outline-warning">
+                    <a class="nav-link active" href="/Home/RegisterMore">Tiếp tục đăng ký</a>
+                </button>
+            }
+            else
+            {
+                <div style="color:orangered">
+                    @ViewBag.MesRegister
+                </div>
+                <h2>Đăng ký </h2>
+                Html.RenderPartial("Register");
+            }
+        }
     </div>
     <div class="col-md-10">
         <h2>Bảng so sánh</h2>
@@ -102,4 +122,4 @@
             </tbody>
         </table>
     </div>
-</div>
+    </div>
