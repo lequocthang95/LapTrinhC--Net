@@ -1,8 +1,9 @@
-﻿@model IEnumerable<WebDemo2.Models.Students>
-
+﻿
+@using WebDemo2.Models;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var list = ViewBag.Student;
 }
 
 <h2>Index</h2>
@@ -10,49 +11,33 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FullName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Birthday)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Notes)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Birthday)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Notes)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@{
+    if (Request.Cookies["CreateStudent"] != null && list!=null)
+    {
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Fullname</th>
+                <th>Birthday</th>
+                <th></th>
+            </tr>
+            @foreach (Student student in list)
+            {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.FullName</td>
+                <td>@student.Birthday.ToString("MM-dd-yyyy")</td>
+            </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h2>Danh sach hoc sinh trong</h2>
+    }
 }
 
-</table>
+             
+

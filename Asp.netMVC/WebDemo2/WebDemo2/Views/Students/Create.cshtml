@@ -1,4 +1,4 @@
-﻿@model WebDemo2.Models.Students
+﻿@model WebDemo2.Models.Student
 
 @{
     ViewBag.Title = "Create";
@@ -7,7 +7,7 @@
 
 <h2>Đăng ký sinh viên</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create","Students", FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
 

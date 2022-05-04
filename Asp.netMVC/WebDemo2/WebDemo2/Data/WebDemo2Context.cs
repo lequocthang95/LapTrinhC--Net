@@ -19,7 +19,7 @@ namespace WebDemo2.Data
         {
         }
 
-        public System.Data.Entity.DbSet<WebDemo2.Models.Students> Students { get; set; }
+        public System.Data.Entity.DbSet<WebDemo2.Models.Student> Students { get; set; }
 
         public System.Data.Entity.DbSet<WebDemo2.Models.User> Users { get; set; }
     }

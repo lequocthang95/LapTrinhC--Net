@@ -14,6 +14,10 @@ namespace WebDemo2.Controllers
         {
             return View();
         }
+        public ActionResult Profile()
+        {
+            return View();
+        }
         public ActionResult Detail(User user)
         {
             return View(user);

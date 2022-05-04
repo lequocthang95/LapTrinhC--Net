@@ -39,6 +39,7 @@ namespace WebDemo2.Controllers
                 {
                     Session["user"] = login;
                     ViewBag.Message = "";
+                 
                 }
                 else
                 {

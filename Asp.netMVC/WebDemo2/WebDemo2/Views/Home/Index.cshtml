@@ -44,9 +44,14 @@
             {
                 <h2>Xin chao @user.username</h2>
                 <h4>Bạn đã đăng nhập thành công bằng cách dùng Session</h4>
-                <button class="btn btn-outline-warning">
-                    <a class="nav-link active" href="/Home/LogOut">Đăng Xuất</a>
-                </button>
+                <div class="d-flex justify-content-start mt-4">
+                    <button class="btn btn-outline-dark col-auto">
+                        <a class="nav-link active" href="/User/Profile">Xem profile</a>
+                    </button>
+                    <button class="btn btn-outline-warning col-auto ms-2">
+                        <a class="nav-link active" href="/Home/LogOut">Đăng Xuất</a>
+                    </button>
+                </div>
             }
             else
             {
